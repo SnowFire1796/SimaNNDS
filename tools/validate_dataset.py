@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Structural checks and compact statistics for the SimaNNDS datasets.
+"""Structural validation and statistics for the SimaNNDS Persian datasets.
 
-Uses only the Python standard library. This is not a factuality or expert
-linguistic-quality evaluator.
+Uses only the Python standard library. It does not judge factuality, safety,
+copyright status, semantic similarity, or expert linguistic quality.
 """
 from __future__ import annotations
 
@@ -15,7 +15,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_DIR = ROOT / "corpus"
 CHAT_DIR = ROOT / "conversations"
+MANIFEST_PATH = ROOT / "manifest.json"
 ARABIC_FORMS = {"\u064a": "\u06cc", "\u0649": "\u06cc", "\u0643": "\u06a9"}
+SYNTHETIC_LABEL = "assistant_authored_synthetic"
 
 
 def read_utf8(path: Path) -> str:
@@ -28,7 +30,9 @@ def comparison_key(value: str) -> str:
     return " ".join(value.split()).casefold()
 
 
-def inspect_persian_text(value: str, label: str, errors: list[str]) -> None:
+def inspect_text(value: str, label: str, errors: list[str]) -> None:
+    if unicodedata.normalize("NFC", value) != value:
+        errors.append(f"{label}: text is not Unicode NFC-normalized")
     for char, description in (
         ("\u064a", "Arabic yeh U+064A"),
         ("\u0649", "alef maksura U+0649"),
@@ -40,6 +44,9 @@ def inspect_persian_text(value: str, label: str, errors: list[str]) -> None:
         errors.append(f"{label}: contains a UTF-8 BOM inside the content")
     if "\x00" in value:
         errors.append(f"{label}: contains a NUL character")
+    for line_number, line in enumerate(value.splitlines(), 1):
+        if line.endswith((" ", "\t")):
+            errors.append(f"{label}:{line_number}: trailing whitespace")
 
 
 def main() -> int:
@@ -54,20 +61,27 @@ def main() -> int:
     all_blocks: list[str] = []
     total_text_bytes = total_text_chars = total_text_words = 0
     total_text_sections = 0
-    total_all_bytes = 0
+    total_conversation_bytes = 0
+    total_conversation_examples = 0
+    conversation_keys: set[str] = set()
+    instruction_keys: set[str] = set()
+    duplicate_pairs = 0
+    duplicate_instructions = 0
+    split_counts = {"train": 0, "validation": 0, "test": 0}
 
     for path in text_files:
         raw = read_utf8(path)
         size = path.stat().st_size
         total_text_bytes += size
-        total_all_bytes += size
         total_text_chars += len(raw)
         total_text_words += len(raw.split())
         blocks = [part.strip() for part in re.split(r"\n\s*\n", raw) if part.strip()]
         sections = len(re.findall(r"^عنوان:", raw, flags=re.MULTILINE))
         total_text_sections += sections
         all_blocks.extend(blocks)
-        inspect_persian_text(raw, str(path.relative_to(ROOT)), errors)
+        inspect_text(raw, str(path.relative_to(ROOT)), errors)
+        if not raw:
+            errors.append(f"{path.relative_to(ROOT)}: empty text file")
         if raw and not raw.endswith("\n"):
             errors.append(f"{path.relative_to(ROOT)}: missing final newline")
         print(
@@ -78,21 +92,14 @@ def main() -> int:
     block_keys = [comparison_key(block) for block in all_blocks]
     duplicate_blocks = len(block_keys) - len(set(block_keys))
     if duplicate_blocks:
-        errors.append(f"{duplicate_blocks} duplicate text blocks found")
-
-    conversation_count = 0
-    total_conversation_bytes = 0
-    conversation_keys: set[str] = set()
-    instruction_keys: set[str] = set()
-    duplicate_pairs = 0
-    duplicate_instructions = 0
+        errors.append(f"{duplicate_blocks} duplicate normalized text blocks found")
 
     for path in jsonl_files:
         raw = read_utf8(path)
         size = path.stat().st_size
         total_conversation_bytes += size
-        total_all_bytes += size
         local_count = 0
+        inspect_text(raw, str(path.relative_to(ROOT)), errors)
         for line_number, line in enumerate(raw.splitlines(), 1):
             if not line.strip():
                 errors.append(f"{path.name}:{line_number}: blank JSONL line")
@@ -111,19 +118,22 @@ def main() -> int:
                 if not isinstance(item.get(key), str) or not item[key].strip():
                     errors.append(f"{path.name}:{line_number}: missing/non-string {key}")
                     valid = False
+                elif item[key] != item[key].strip():
+                    errors.append(f"{path.name}:{line_number}: {key} has outer whitespace")
             if item.get("language") != "fa":
                 errors.append(f"{path.name}:{line_number}: language must be 'fa'")
                 valid = False
-            if item.get("provenance") != "assistant_authored_synthetic":
+            if item.get("provenance") != SYNTHETIC_LABEL:
                 errors.append(f"{path.name}:{line_number}: provenance must be explicit")
                 valid = False
-            if item.get("split") not in {"train", "validation", "test"}:
+            split = item.get("split")
+            if split not in split_counts:
                 errors.append(f"{path.name}:{line_number}: split must be train, validation, or test")
                 valid = False
             for key in ("instruction", "response"):
                 value = item.get(key)
                 if isinstance(value, str):
-                    inspect_persian_text(value, f"{path.name}:{line_number}:{key}", errors)
+                    inspect_text(value, f"{path.name}:{line_number}:{key}", errors)
             if not valid:
                 continue
 
@@ -135,8 +145,9 @@ def main() -> int:
             if instruction_key in instruction_keys:
                 duplicate_instructions += 1
             instruction_keys.add(instruction_key)
+            split_counts[split] += 1
             local_count += 1
-            conversation_count += 1
+            total_conversation_examples += 1
 
         if raw and not raw.endswith("\n"):
             errors.append(f"{path.relative_to(ROOT)}: missing final newline")
@@ -147,25 +158,81 @@ def main() -> int:
     if duplicate_instructions:
         errors.append(f"{duplicate_instructions} repeated conversation instructions found")
 
+    total_data_bytes = total_text_bytes + total_conversation_bytes
+    actual_stats = {
+        "text_files": len(text_files),
+        "conversation_files": len(jsonl_files),
+        "text_sections": total_text_sections,
+        "text_blocks": len(all_blocks),
+        "conversation_examples": total_conversation_examples,
+        "text_bytes": total_text_bytes,
+        "conversation_bytes": total_conversation_bytes,
+        "total_data_bytes": total_data_bytes,
+        "text_characters_including_whitespace": total_text_chars,
+        "text_whitespace_separated_words": total_text_words,
+        "exact_normalized_duplicate_text_blocks": duplicate_blocks,
+        "exact_duplicate_conversation_pairs": duplicate_pairs,
+        "repeated_conversation_instructions": duplicate_instructions,
+        "conversation_split_counts": split_counts,
+    }
+
+    try:
+        manifest = json.loads(read_utf8(MANIFEST_PATH))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        errors.append(f"manifest.json: cannot read valid UTF-8 JSON: {exc}")
+        manifest = {}
+
+    manifest_files = manifest.get("files", []) if isinstance(manifest, dict) else []
+    manifest_paths = {
+        entry.get("path")
+        for entry in manifest_files
+        if isinstance(entry, dict) and isinstance(entry.get("path"), str)
+    }
+    actual_paths = {
+        str(path.relative_to(ROOT)) for path in text_files + jsonl_files
+    }
+    if manifest_paths != actual_paths:
+        missing = sorted(actual_paths - manifest_paths)
+        stale = sorted(manifest_paths - actual_paths)
+        errors.append(f"manifest file inventory mismatch; unregistered={missing}, missing_on_disk={stale}")
+
+    for entry in manifest_files:
+        if not isinstance(entry, dict):
+            errors.append("manifest files entries must be objects")
+            continue
+        path = entry.get("path", "<unknown>")
+        if entry.get("provenance") != SYNTHETIC_LABEL:
+            errors.append(f"manifest {path}: provenance must be {SYNTHETIC_LABEL}")
+        if not entry.get("generation_date"):
+            errors.append(f"manifest {path}: generation_date is required")
+        if not entry.get("intended_use"):
+            errors.append(f"manifest {path}: intended_use is required")
+        if not entry.get("license"):
+            errors.append(f"manifest {path}: license status must be stated")
+        if entry.get("third_party_material") is not False:
+            errors.append(f"manifest {path}: third_party_material must be false or explicitly reviewed")
+
+    provenance_policy = manifest.get("provenance_policy", {})
+    if provenance_policy.get("synthetic_label") != SYNTHETIC_LABEL:
+        errors.append("manifest provenance_policy has an unexpected synthetic label")
+    if provenance_policy.get("external_sources") != []:
+        errors.append("manifest external_sources must list every verified external source (currently expected empty)")
+
+    recorded_stats = manifest.get("statistics", {})
+    for key, value in actual_stats.items():
+        if recorded_stats.get(key) != value:
+            errors.append(f"manifest statistics mismatch for {key}: recorded={recorded_stats.get(key)!r}, actual={value!r}")
+
     print("\nTOTALS")
-    print(f"Text sections: {total_text_sections}")
-    print(f"Text blocks: {len(all_blocks)}")
-    print(f"Conversation examples: {conversation_count}")
-    print(f"Text bytes: {total_text_bytes}")
-    print(f"Conversation bytes: {total_conversation_bytes}")
-    print(f"Total dataset bytes: {total_all_bytes}")
-    print(f"Text characters: {total_text_chars}")
-    print(f"Text whitespace-separated words: {total_text_words}")
-    print(f"Duplicate text blocks: {duplicate_blocks}")
-    print(f"Duplicate conversation pairs: {duplicate_pairs}")
-    print(f"Repeated conversation instructions: {duplicate_instructions}")
+    for key, value in actual_stats.items():
+        print(f"{key}: {value}")
 
     if errors:
         print("\nERRORS")
         for error in errors:
             print(f"- {error}")
         return 1
-    print("\nStructural validation passed. This does not certify factual correctness or linguistic quality.")
+    print("\nStructural validation passed. This does not certify factual correctness, safety, licensing, or linguistic quality.")
     return 0
 
 
