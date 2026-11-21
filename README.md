@@ -22,11 +22,11 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 27 | 318 titled sections; 701 blank-line-separated text blocks | 309,923 bytes |
+| Plain-text corpus | 35 | 377 titled sections; 819 blank-line-separated text blocks | 365,057 bytes |
 | Plain-text dialogue | 3 | 242 پرسش/پاسخ records (226 train, 8 validation, 8 test) | 122,088 bytes |
-| **Total** | **30** | **318 sections + 242 dialogue records** | **432,011 bytes** |
+| **Total** | **38** | **377 sections + 242 dialogue records** | **487,145 bytes** |
 
-The raw text corpus contains 30,846 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The raw text corpus contains 36,306 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
 Conversation split counts: **train 226**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
@@ -60,6 +60,15 @@ Current text files:
 - `fa_engineering_0001.txt`: requirements, prototyping, tolerances, energy efficiency, safety, repairability, and life-cycle assessment.
 - `fa_literature_0001.txt`: narrative perspective, characterization, dialogue, metaphor, editing, and literary criticism.
 - `fa_law_civics_0001.txt`: legal rules, rights and responsibilities, contracts, privacy, public institutions, and dispute resolution.
+
+- `fa_programming_languages_0001.txt`: language design, compilation, type systems, memory, concurrency, debugging, and code readability.
+- `fa_algorithms_0001.txt`: algorithm analysis, searching, sorting, data structures, graph traversal, dynamic programming, and correctness proofs.
+- `fa_machine_learning_0001.txt`: dataset splits, leakage, loss functions, optimization, neural networks, byte-level language models, and evaluation.
+- `fa_electronics_0001.txt`: charge, current, voltage, resistance, circuits, capacitors, diodes, transistors, and circuit diagrams.
+- `fa_education_0001.txt`: learning objectives, active recall, spaced review, feedback, problem solving, note-taking, and assessment.
+- `fa_sound_0001.txt`: sound waves, reflection, timbre, rhythm, recording quality, and hearing safety.
+- `fa_agriculture_0001.txt`: soil, irrigation, biodiversity, integrated pest management, germination, and harvest storage.
+- `fa_energy_systems_0001.txt`: energy conversion, electricity grids, solar generation, building insulation, storage, and efficiency.
 
 Dialogue files:
 
