@@ -632,6 +632,17 @@
       "license": "No repository license selected; unlicensed.",
       "human_reviewed": false,
       "source_notes": "Original synthetic Persian text across astronomy, GIS, logistics, AI ethics, learning science, manufacturing, energy, applied statistics, cultural heritage, food science, water resources, digital forensics, biotechnology, transport, environment, linguistics, research ethics, and software testing. No third-party text imported."
+    },
+    {
+      "path": "corpus/fa_dataset_engineering_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original Persian educational text about corpus provenance, curation, evaluation, and reproducibility.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored text; no third-party material imported."
     }
   ],
   "limitations": [
@@ -655,16 +666,16 @@
   ],
   "statistics": {
     "measured_on": "2026-11-21",
-    "text_files": 37,
+    "text_files": 38,
     "conversation_files": 3,
-    "text_sections": 683,
-    "text_blocks": 3031,
+    "text_sections": 691,
+    "text_blocks": 3047,
     "conversation_examples": 242,
-    "text_bytes": 1411310,
+    "text_bytes": 1417141,
     "conversation_bytes": 122088,
-    "total_data_bytes": 1533398,
-    "text_characters_including_whitespace": 775870,
-    "text_whitespace_separated_words": 140513,
+    "total_data_bytes": 1539229,
+    "text_characters_including_whitespace": 779105,
+    "text_whitespace_separated_words": 141101,
     "exact_normalized_duplicate_text_blocks": 0,
     "exact_duplicate_conversation_pairs": 0,
     "repeated_conversation_instructions": 0,
