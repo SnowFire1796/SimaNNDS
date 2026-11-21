@@ -643,6 +643,17 @@
       "license": "No repository license selected; unlicensed.",
       "human_reviewed": false,
       "source_notes": "Original assistant-authored text; no third-party material imported."
+    },
+    {
+      "path": "conversations/fa_dialogue_train_0002.txt",
+      "kind": "plain_text_conversation_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Additional synthetic Persian prompt-response pairs derived from the newly authored multi-domain corpus; training split only.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "272 synthetic prompt-response records derived from original SimaNNDS corpus sections. All records belong to train; validation and test files were not modified."
     }
   ],
   "limitations": [
@@ -667,20 +678,20 @@
   "statistics": {
     "measured_on": "2026-11-21",
     "text_files": 38,
-    "conversation_files": 3,
+    "conversation_files": 4,
     "text_sections": 691,
     "text_blocks": 3047,
-    "conversation_examples": 242,
+    "conversation_examples": 514,
     "text_bytes": 1417141,
-    "conversation_bytes": 122088,
-    "total_data_bytes": 1539229,
+    "conversation_bytes": 305757,
+    "total_data_bytes": 1722898,
     "text_characters_including_whitespace": 779105,
     "text_whitespace_separated_words": 141101,
     "exact_normalized_duplicate_text_blocks": 0,
     "exact_duplicate_conversation_pairs": 0,
     "repeated_conversation_instructions": 0,
     "conversation_split_counts": {
-      "train": 226,
+      "train": 498,
       "validation": 8,
       "test": 8
     },
