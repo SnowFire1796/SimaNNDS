@@ -22,11 +22,11 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 36 | 512 titled sections; 1795 blank-line-separated text blocks | 749,125 bytes |
+| Plain-text corpus | 37 | 683 titled sections; 3031 blank-line-separated text blocks | 1,226,018 bytes |
 | Plain-text dialogue | 3 | 242 پرسش/پاسخ records (226 train, 8 validation, 8 test) | 122,088 bytes |
-| **Total** | **39** | **512 sections + 242 dialogue records** | **871,213 bytes** |
+| **Total** | **40** | **683 sections + 242 dialogue records** | **1,348,106 bytes** |
 
-The raw text corpus contains 74,962 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The raw text corpus contains 124,113 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
 Conversation split counts: **train 226**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
@@ -124,3 +124,6 @@ The repository is deliberately text-only and small. It avoids model weights, arc
 ### Large synthetic expansion (2026-11-21)
 
 A new multi-domain TXT volume adds advanced material on networking, database systems, defensive cybersecurity, operating systems, compiler architecture, robotics and control, signal processing, numerical methods, geology and climate, public policy, media literacy, research methods, economics, biology, and product design. The material is assistant-authored synthetic prose, not an independently verified reference corpus; human review is still required.
+
+
+A second large synthetic volume adds advanced Persian material on astronomy, geographic information systems, logistics, AI ethics, learning science, manufacturing, energy, applied statistics, cultural heritage, food systems, water resources, digital forensics, biotechnology, transport, environmental management, linguistics, research ethics, and software testing. All new material is explicitly labeled synthetic and awaits human review.

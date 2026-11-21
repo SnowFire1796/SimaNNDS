@@ -621,6 +621,17 @@
       "license": "No repository license selected; unlicensed.",
       "human_reviewed": false,
       "source_notes": "Original assistant-authored synthetic text across networking, databases, cybersecurity, operating systems, compilers, robotics, signal processing, numerical methods, geoscience, public policy, media, research, economics, biology, and product design. No third-party text imported."
+    },
+    {
+      "path": "corpus/fa_massive_expansion_0002.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Second large original Persian educational prose expansion for next-byte language-model experiments.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original synthetic Persian text across astronomy, GIS, logistics, AI ethics, learning science, manufacturing, energy, applied statistics, cultural heritage, food science, water resources, digital forensics, biotechnology, transport, environment, linguistics, research ethics, and software testing. No third-party text imported."
     }
   ],
   "limitations": [
@@ -644,16 +655,16 @@
   ],
   "statistics": {
     "measured_on": "2026-11-21",
-    "text_files": 36,
+    "text_files": 37,
     "conversation_files": 3,
-    "text_sections": 512,
-    "text_blocks": 1795,
+    "text_sections": 683,
+    "text_blocks": 3031,
     "conversation_examples": 242,
-    "text_bytes": 749125,
+    "text_bytes": 1226018,
     "conversation_bytes": 122088,
-    "total_data_bytes": 871213,
-    "text_characters_including_whitespace": 412297,
-    "text_whitespace_separated_words": 74962,
+    "total_data_bytes": 1348106,
+    "text_characters_including_whitespace": 675406,
+    "text_whitespace_separated_words": 124113,
     "exact_normalized_duplicate_text_blocks": 0,
     "exact_duplicate_conversation_pairs": 0,
     "repeated_conversation_instructions": 0,
