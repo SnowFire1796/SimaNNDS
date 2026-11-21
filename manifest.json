@@ -45,5 +45,11 @@
     "Evaluate and document properly licensed public Persian corpora before importing them.",
     "Add stronger deduplication and text-quality checks.",
     "Implement a conversation/SFT data format only after the model architecture supports it."
-  ]
+  ],
+  "statistics": {
+    "raw_text_passages": 121,
+    "conversation_examples": 40,
+    "training_data_bytes": 73619,
+    "note": "Counts measured on the initial committed data files; structural counts only, not a linguistic quality score."
+  }
 }
