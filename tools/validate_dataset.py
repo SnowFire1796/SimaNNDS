@@ -7,6 +7,7 @@ copyright status, semantic similarity, or expert linguistic quality.
 from __future__ import annotations
 
 # Structural checks are necessary, but they do not replace factual or human review.
+# Supports both raw prose TXT and split-preserving instruction/response TXT.
 
 import json
 import re
