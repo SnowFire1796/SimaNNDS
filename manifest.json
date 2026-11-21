@@ -1,0 +1,532 @@
+{
+  "dataset_name": "SimaNNDS",
+  "language": "fa",
+  "encoding": "UTF-8",
+  "created": "2026-11-21",
+  "updated": "2026-11-21",
+  "status": "expanded_synthetic_corpus_batch_2026_11_21_03",
+  "license": "UNLICENSED — maintainer decision required; no redistribution permission is granted by this manifest",
+  "normalization": {
+    "unicode_normalization": "NFC preferred",
+    "preferred_yeh": "U+06CC",
+    "preferred_kaf": "U+06A9",
+    "zwnj": "U+200C",
+    "policy": "Use Persian yeh and kaf, consistent ZWNJ in standard compounds and prefixes, readable spacing, and non-destructive normalization. Preserve register and meaning."
+  },
+  "provenance_policy": {
+    "synthetic_label": "assistant_authored_synthetic",
+    "statement": "All current corpus and conversation files contain original synthetic Persian material authored specifically for SimaNNDS. No third-party text was imported in the recorded batches. Synthetic text is not a human conversation or a verified factual source.",
+    "external_sources": [],
+    "external_license_notes": "No external material is currently included. If third-party material is added later, record the exact source, collection date, license evidence, permitted use, and transformations before committing."
+  },
+  "files": [
+    {
+      "path": "corpus/fa_general_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Small-scale next-token or next-byte language-model pipeline tests and general explanatory Persian prose.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material; no external source was used."
+    },
+    {
+      "path": "corpus/fa_everyday_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with everyday narrative and informal dialogue registers.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material; no external source was used."
+    },
+    {
+      "path": "corpus/fa_science_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with accessible explanatory prose about measurement, probability, materials, sound, observation, and related topics.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material; no external source was used."
+    },
+    {
+      "path": "corpus/fa_culture_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with cultural, artistic, linguistic, and descriptive registers.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material; no external source was used."
+    },
+    {
+      "path": "corpus/fa_practical_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with practical narratives, planning, household topics, and short everyday dialogue.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0001.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary instruction/response format experiments; not directly consumable by the current plain-text SimaNN trainer.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0002.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Additional synthetic instruction/response examples for future adapter or supervised fine-tuning experiments; not directly consumable by the current plain-text SimaNN trainer.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material; no external source was used."
+    },
+    {
+      "path": "corpus/fa_digital_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Next-token/next-byte language-modeling experiments with software practices, privacy, accessibility, networks, testing, and file handling.",
+      "topics": [
+        "software security",
+        "backup and recovery",
+        "network latency",
+        "logging",
+        "version control",
+        "accessibility",
+        "metadata",
+        "compression"
+      ],
+      "third_party_material": false,
+      "source_notes": "Original synthetic text authored for SimaNNDS; no external source was used.",
+      "human_reviewed": false,
+      "license": "No repository license selected; unlicensed."
+    },
+    {
+      "path": "corpus/fa_reasoning_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Next-token/next-byte language-modeling experiments with mathematical reasoning, measurement, probability, algorithms, and model design.",
+      "topics": [
+        "problem formulation",
+        "estimation",
+        "units",
+        "charts",
+        "sampling bias",
+        "probability",
+        "algorithms",
+        "state machines",
+        "numerical error"
+      ],
+      "third_party_material": false,
+      "source_notes": "Original synthetic text authored for SimaNNDS; no external source was used.",
+      "human_reviewed": false,
+      "license": "No repository license selected; unlicensed."
+    },
+    {
+      "path": "corpus/fa_observation_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Next-token/next-byte language-modeling experiments with observational writing, public spaces, environmental practices, repair, and product design.",
+      "topics": [
+        "field notes",
+        "public space",
+        "accessibility",
+        "water use",
+        "repair",
+        "waste sorting",
+        "sound",
+        "lighting",
+        "plants",
+        "local participation"
+      ],
+      "third_party_material": false,
+      "source_notes": "Original synthetic text authored for SimaNNDS; no external source was used.",
+      "human_reviewed": false,
+      "license": "No repository license selected; unlicensed."
+    },
+    {
+      "path": "conversations/fa_dialogue_0003.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary instruction/response examples for future supervised instruction experiments; includes train, validation, and test labels and is not directly consumable by the current plain-text trainer.",
+      "topics": [
+        "software engineering",
+        "data reasoning",
+        "accessibility",
+        "privacy",
+        "technical writing",
+        "study skills",
+        "debugging",
+        "low-resource computing"
+      ],
+      "third_party_material": false,
+      "source_notes": "Original synthetic instruction/response pairs authored for SimaNNDS; no external source was used.",
+      "human_reviewed": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "split_counts": {
+        "train": 32,
+        "validation": 8,
+        "test": 8
+      }
+    },
+    {
+      "path": "corpus/fa_infrastructure_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original Persian explanatory and descriptive prose for next-token/next-byte language-model experiments; adds infrastructure, engineering, earth science, logistics, robotics, and systems topics.",
+      "topics": [
+        "geology",
+        "weather observation",
+        "urban water distribution",
+        "microgrids",
+        "rail scheduling",
+        "archives",
+        "supply chains",
+        "quality control",
+        "map projections",
+        "robotics sensors",
+        "operating-system scheduling",
+        "database transactions"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0004.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary instruction/response examples for future supervised instruction experiments; not directly consumable by the current plain-text SimaNN trainer.",
+      "topics": [
+        "DNS",
+        "TLS",
+        "browser caching",
+        "event loops",
+        "mutexes",
+        "database migrations",
+        "indexes",
+        "transactions",
+        "compiler stages",
+        "linking",
+        "Unicode",
+        "endianness",
+        "memory allocation",
+        "file descriptors",
+        "shell pipelines",
+        "processes and threads",
+        "continuous integration",
+        "binary formats",
+        "calibration",
+        "meteorology",
+        "geology",
+        "coordinate systems",
+        "robotics",
+        "load testing",
+        "time zones"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "split_counts": {
+        "train": 25,
+        "validation": 0,
+        "test": 0
+      },
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "corpus/fa_urban_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original synthetic Persian prose for next-token/next-byte language-model experiments.",
+      "topics": [
+        "urban mobility",
+        "wayfinding",
+        "public space",
+        "building energy",
+        "rainwater",
+        "oral history",
+        "urban data",
+        "night lighting"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "corpus/fa_food_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original synthetic Persian prose for next-token/next-byte language-model experiments.",
+      "topics": [
+        "food storage",
+        "meal planning",
+        "food labels",
+        "soil and irrigation",
+        "pollinators",
+        "packaging",
+        "cooking processes",
+        "local food narratives"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0005.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not directly consumed by the current plain-text trainer.",
+      "topics": [
+        "urban studies",
+        "food systems",
+        "learning methods",
+        "work practices",
+        "data literacy"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "split_counts": {
+        "train": 18,
+        "validation": 0,
+        "test": 0
+      },
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0006.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not directly consumed by the current plain-text trainer.",
+      "topics": [
+        "urban studies",
+        "food systems",
+        "learning methods",
+        "work practices",
+        "data literacy"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "split_counts": {
+        "train": 17,
+        "validation": 0,
+        "test": 0
+      },
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "corpus/fa_materials_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original synthetic Persian prose for next-token/next-byte language-model experiments.",
+      "topics": [
+        "wood restoration",
+        "metal identification",
+        "ceramics",
+        "textiles",
+        "tool maintenance",
+        "repairability",
+        "life-cycle analysis",
+        "workshop safety"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material for SimaNNDS; no external source was used."
+    },
+    {
+      "path": "corpus/fa_ecology_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original synthetic Persian prose for next-token/next-byte language-model experiments.",
+      "topics": [
+        "wetlands",
+        "soil cover",
+        "bird observation",
+        "water sampling",
+        "coastal erosion",
+        "waste management",
+        "light pollution",
+        "urban biodiversity",
+        "climate data"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material for SimaNNDS; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0007.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not consumed by the current plain-text trainer.",
+      "topics": [
+        "craft and materials",
+        "repair",
+        "environmental observation",
+        "ecology",
+        "waste management",
+        "field methods"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "split_counts": {
+        "train": 26,
+        "validation": 0,
+        "test": 0
+      },
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic instruction/response pairs for SimaNNDS; no external source was used."
+    }
+  ],
+  "limitations": [
+    "This is a small synthetic starter dataset, not a comprehensive or representative Persian corpus.",
+    "Synthetic material may contain simplifications, omissions, stylistic repetition, or factual errors and has not undergone independent expert human review.",
+    "No third-party sources were imported; no external source license is claimed.",
+    "The repository license remains undecided; public visibility does not grant reuse permission.",
+    "Conversation records have synthetic train, validation, and test labels, but the held-out portions are small and are not a human-reviewed benchmark.",
+    "The conversation JSONL format is not directly supported by the current SimaNN plain-text trainer.",
+    "The current byte-level RNN has limited capacity; dataset size alone cannot make it a capable assistant.",
+    "Structural validation does not establish factual correctness, safety, copyright clearance, or linguistic quality."
+  ],
+  "next_steps": [
+    "Arrange Persian-language human review for fluency, orthography, register diversity, and factual claims.",
+    "Expand validation and test sets only with reviewed, non-leaking examples and document their evaluation purpose.",
+    "Add more naturally varied Persian text without inflating the corpus with repetitive templates.",
+    "Implement a documented conversation loader or training objective before using JSONL for supervised instruction training.",
+    "Evaluate properly licensed public Persian corpora before importing any external data.",
+    "Select and document a repository/data license after reviewing ownership and intended redistribution.",
+    "Add semantic near-duplicate review; current automated checks detect exact normalized duplicates only."
+  ],
+  "statistics": {
+    "measured_on": "2026-11-21",
+    "text_files": 13,
+    "conversation_files": 7,
+    "text_sections": 181,
+    "text_blocks": 346,
+    "conversation_examples": 212,
+    "text_bytes": 175079,
+    "conversation_bytes": 125053,
+    "total_data_bytes": 300132,
+    "text_characters_including_whitespace": 96252,
+    "text_whitespace_separated_words": 17528,
+    "exact_normalized_duplicate_text_blocks": 0,
+    "exact_duplicate_conversation_pairs": 0,
+    "repeated_conversation_instructions": 0,
+    "conversation_split_counts": {
+      "train": 196,
+      "validation": 8,
+      "test": 8
+    },
+    "note": "Byte sizes are UTF-8 file sizes. Text blocks are separated by blank lines; titled sections are counted by the 'عنوان:' heading. Word counts use whitespace splitting and are not model-token counts. Duplicate checks are normalized exact comparisons, not semantic near-duplicate detection. Split counts describe synthetic records and do not establish evaluation quality."
+  },
+  "documentation": [
+    "docs/DATASET_CARD.fa.md",
+    "docs/REVIEW_GUIDE.fa.md"
+  ],
+  "quality_checks": {
+    "structural_validator": "tools/validate_dataset.py",
+    "automated_workflow": ".github/workflows/validate-dataset.yml",
+    "checks": [
+      "UTF-8 decoding",
+      "NFC normalization",
+      "Persian yeh/kaf code points",
+      "final newline",
+      "trailing whitespace",
+      "JSONL syntax and required fields",
+      "provenance and split labels",
+      "exact normalized duplicate text blocks",
+      "duplicate instruction/response pairs",
+      "repeated instructions",
+      "manifest file inventory and statistics"
+    ],
+    "human_reviewed": false,
+    "semantic_duplicate_detection": false,
+    "factual_verification": false,
+    "last_updated": "2026-11-21"
+  },
+  "limits_note": "This batch is synthetic and not human-reviewed. Automated structural checks do not establish factual accuracy, safety, copyright status, or semantic uniqueness."
+}
