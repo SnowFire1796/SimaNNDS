@@ -77,7 +77,7 @@ def main() -> int:
         total_text_bytes += size
         total_text_chars += len(raw)
         total_text_words += len(raw.split())
-        blocks = [part.strip() for part in re.split(r"(?m)(?=^نمونه \d+\n)", raw) if part.strip()]
+        blocks = [part.strip() for part in re.split(r"\n\s*\n", raw) if part.strip()]
         sections = len(re.findall(r"^عنوان:", raw, flags=re.MULTILINE))
         total_text_sections += sections
         all_blocks.extend(blocks)
@@ -106,7 +106,7 @@ def main() -> int:
             errors.append(f"{path.name}: filename must identify train, validation, or test split")
             continue
         local_count = 0
-        blocks = [part.strip() for part in re.split(r"\n\s*\n", raw) if part.strip()]
+        blocks = [part.strip() for part in re.split(r"(?m)(?=^نمونه \d+\n)", raw) if part.strip()]
         for index, block in enumerate(blocks, 1):
             lines = block.splitlines()
             if len(lines) < 3 or not lines[0].startswith("نمونه ") or not lines[1].startswith("پرسش: ") or not lines[2].startswith("پاسخ: "):
