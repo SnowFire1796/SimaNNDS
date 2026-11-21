@@ -22,11 +22,11 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 8 | 119 titled sections; 222 blank-line-separated text blocks | 110,811 bytes |
-| Conversation examples | 3 | 126 JSONL records | 74,318 bytes |
-| **Total** | **11** | **119 sections + 126 conversations** | **185,129 bytes (about 180.8 KiB)** |
+| Plain-text corpus | 9 | 131 titled sections; 246 blank-line-separated text blocks | 125,567 bytes |
+| Conversation examples | 4 | 151 JSONL records | 90,517 bytes |
+| **Total** | **13** | **131 sections + 151 conversations** | **216,084 bytes (about 211.0 KiB)** |
 
-The text corpus contains 11,080 whitespace-separated words. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The text corpus contains 12,536 whitespace-separated words. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
 Conversation split counts: **train 110**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
@@ -40,12 +40,14 @@ Current text files:
 - `fa_digital_0001.txt`: software security, backup, networks, logging, version control, accessibility, metadata, and compression.
 - `fa_reasoning_0001.txt`: problem formulation, estimation, units, charts, sampling, probability, algorithms, state machines, and numerical reasoning.
 - `fa_observation_0001.txt`: field notes, public spaces, access, household resources, repair, waste, sound, lighting, plants, and product design.
+- `fa_infrastructure_0001.txt`: geology, weather observation, urban water and energy systems, rail scheduling, archives, supply chains, quality control, map projections, robotics, and operating systems.
 
 Conversation files:
 
 - `fa_dialogue_0001.jsonl`: initial question-and-answer examples.
 - `fa_dialogue_0002.jsonl`: examples covering writing, data reasoning, software development, accessibility, privacy, and practical communication.
 - `fa_dialogue_0003.jsonl`: additional software, reasoning, accessibility, privacy, writing, debugging, and low-resource computing examples; includes held-out split labels.
+- `fa_dialogue_0004.jsonl`: additional original examples on networking, operating systems, databases, compilers, Unicode, robotics, and measurement.
 
 ## Data format
 
