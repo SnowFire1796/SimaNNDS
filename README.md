@@ -7,7 +7,12 @@ SimaNNDS is a compact Persian-language dataset repository for experiments with t
 - `corpus/`: UTF-8 plain-text files for next-token / next-byte language-modeling experiments. Blank lines separate text blocks; each titled section begins with `عنوان:`.
 - `conversations/`: UTF-8 JSON Lines (JSONL) instruction/response examples. These are kept separate from raw language-model text.
 - `manifest.json`: dataset provenance, intended uses, limitations, normalization policy, and measured statistics.
+- `docs/DATASET_CARD.fa.md`: Persian-language data card describing scope, provenance, formats, risks, and appropriate use.
 - `tools/validate_dataset.py`: standard-library-only structural validator and statistics report.
+
+## Data card
+
+See [کارت دادهٔ فارسی](docs/DATASET_CARD.fa.md) for a Persian-language description of the dataset, its intended use, limitations, and licensing status.
 
 ## Current snapshot
 
