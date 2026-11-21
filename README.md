@@ -5,7 +5,7 @@ SimaNNDS is a compact Persian-language dataset repository for experiments with t
 ## Repository layout
 
 - `corpus/`: UTF-8 plain-text files for next-token / next-byte language-modeling experiments. Blank lines separate text blocks; each titled section begins with `عنوان:`.
-- `conversations/`: UTF-8 plain-text instruction/response examples. Train, validation, and test are separate files; the second train shard adds 272 synthetic pairs derived from the expanded corpus.
+- `conversations/`: UTF-8 plain-text instruction/response examples. Train, validation, and test are separate files; additional train shards add 392 synthetic pairs derived from the expanded corpus.
 - `manifest.json`: dataset provenance, intended uses, limitations, normalization policy, and measured statistics.
 - `docs/DATASET_CARD.fa.md`: Persian-language data card describing scope, provenance, formats, risks, and licensing status.
 - `docs/REVIEW_GUIDE.fa.md`: Persian checklist for human review, source tracking, split discipline, and quality control.
@@ -22,13 +22,13 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 38 | 691 titled sections; 3047 blank-line-separated text blocks | 1,417,141 bytes |
-| Plain-text dialogue | 4 | 514 پرسش/پاسخ records (498 train, 8 validation, 8 test) | 305,757 bytes |
-| **Total** | **42** | **691 sections + 514 dialogue records** | **1,722,898 bytes** |
+| Plain-text corpus | 39 | 826 titled sections; 4023 blank-line-separated text blocks | 1,818,280 bytes |
+| Plain-text dialogue | 5 | 634 پرسش/پاسخ records (618 train, 8 validation, 8 test) | 375,448 bytes |
+| **Total** | **44** | **826 sections + 634 dialogue records** | **2,193,728 bytes** |
 
-The raw text corpus contains 141,101 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The raw text corpus contains 181,705 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
-Conversation split counts: **train 498**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
+Conversation split counts: **train 618**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
 Current text files:
 
@@ -127,3 +127,6 @@ A new multi-domain TXT volume adds advanced material on networking, database sys
 
 
 A second large synthetic volume adds advanced Persian material on astronomy, geographic information systems, logistics, AI ethics, learning science, manufacturing, energy, applied statistics, cultural heritage, food systems, water resources, digital forensics, biotechnology, transport, environmental management, linguistics, research ethics, and software testing. All new material is explicitly labeled synthetic and awaits human review.
+
+
+The third volume adds material on computer architecture, distributed systems, web engineering, cloud computing, discrete mathematics, advanced physics and chemistry, cognitive psychology, graphics, urban planning, finance, bioinformatics, reliability engineering, and music. A third dialogue shard contributes 120 additional synthetic training pairs.
