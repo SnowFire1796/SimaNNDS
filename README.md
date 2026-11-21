@@ -28,7 +28,7 @@ Snapshot measured on 2026-11-21:
 
 The text corpus contains 12,536 whitespace-separated words. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
-Conversation split counts: **train 110**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
+Conversation split counts: **train 135**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
 Current text files:
 
