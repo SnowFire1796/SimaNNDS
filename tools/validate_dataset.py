@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Structural validation and statistics for the SimaNNDS Persian datasets.
 
+Checks the expanded multi-domain corpus, split-preserving TXT dialogues,
+UTF-8 normalization, exact duplicates, provenance, inventory, and statistics.
 Uses only the Python standard library. It does not judge factuality, safety,
 copyright status, semantic similarity, or expert linguistic quality.
 """
