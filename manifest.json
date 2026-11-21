@@ -1,0 +1,42 @@
+{
+  "dataset_name": "SimaNNDS",
+  "language": "fa",
+  "encoding": "UTF-8",
+  "created": "2026-11-21",
+  "status": "starter_dataset",
+  "license": "UNLICENSED — maintainer decision required",
+  "normalization": {
+    "preferred_yeh": "U+06CC",
+    "preferred_kaf": "U+06A9",
+    "zwnj": "U+200C",
+    "policy": "Consistent Persian orthography without destructive rewriting"
+  },
+  "sources": [
+    {
+      "path": "corpus/fa_general_0001.txt",
+      "provenance": "Original synthetic Persian passages authored for SimaNNDS",
+      "source_type": "assistant_authored_synthetic",
+      "third_party_material": false,
+      "license": "No repository-wide license selected yet"
+    },
+    {
+      "path": "conversations/fa_dialogue_0001.jsonl",
+      "provenance": "Original synthetic Persian instruction and dialogue examples authored for SimaNNDS",
+      "source_type": "assistant_authored_synthetic",
+      "third_party_material": false,
+      "license": "No repository-wide license selected yet"
+    }
+  ],
+  "limitations": [
+    "This is a small starter corpus, not a comprehensive Persian language dataset.",
+    "Synthetic passages may contain simplifications and should not be treated as verified factual reference material.",
+    "Conversation JSONL is not directly consumed by the current SimaNN text-only trainer.",
+    "The current byte-level RNN has very limited model capacity."
+  ],
+  "next_steps": [
+    "Expand the raw-text corpus with additional original domains and styles.",
+    "Evaluate and document properly licensed public Persian corpora before importing them.",
+    "Add stronger deduplication and text-quality checks.",
+    "Implement a conversation/SFT data format only after the model architecture supports it."
+  ]
+}
