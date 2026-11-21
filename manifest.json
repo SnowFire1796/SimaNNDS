@@ -551,7 +551,7 @@
     "No third-party sources were imported; no external source license is claimed.",
     "The repository license remains undecided; public visibility does not grant reuse permission.",
     "Conversation records have synthetic train, validation, and test labels, but the held-out portions are small and are not a human-reviewed benchmark.",
-    "The conversation JSONL format is not directly supported by the current SimaNN plain-text trainer.",
+    "Dialogue TXT can be read as ordinary text by the current trainer, but prompt/response structure is not instruction-tuned and no loss masking is applied.",
     "The current byte-level RNN has limited capacity; dataset size alone cannot make it a capable assistant.",
     "Structural validation does not establish factual correctness, safety, copyright clearance, or linguistic quality."
   ],
@@ -559,7 +559,7 @@
     "Arrange Persian-language human review for fluency, orthography, register diversity, and factual claims.",
     "Expand validation and test sets only with reviewed, non-leaking examples and document their evaluation purpose.",
     "Add more naturally varied Persian text without inflating the corpus with repetitive templates.",
-    "Implement a documented conversation loader or training objective before using JSONL for supervised instruction training.",
+    "Implement prompt/response-aware training with an explicit objective or loss masking before claiming supervised instruction tuning.",
     "Evaluate properly licensed public Persian corpora before importing any external data.",
     "Select and document a repository/data license after reviewing ownership and intended redistribution.",
     "Add semantic near-duplicate review; current automated checks detect exact normalized duplicates only."
@@ -599,8 +599,7 @@
       "Persian yeh/kaf code points",
       "final newline",
       "trailing whitespace",
-      "JSONL syntax and required fields",
-      "provenance and split labels",
+      "dialogue record structure and split file naming",
       "exact normalized duplicate text blocks",
       "duplicate instruction/response pairs",
       "repeated instructions",
