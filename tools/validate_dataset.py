@@ -6,6 +6,8 @@ copyright status, semantic similarity, or expert linguistic quality.
 """
 from __future__ import annotations
 
+# Structural checks are necessary, but they do not replace factual or human review.
+
 import json
 import re
 import sys
