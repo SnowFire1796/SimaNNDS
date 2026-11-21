@@ -4,7 +4,7 @@
   "encoding": "UTF-8",
   "created": "2026-11-21",
   "updated": "2026-11-21",
-  "status": "expanded_synthetic_corpus_batch_2026_11_21",
+  "status": "expanded_synthetic_corpus_batch_2026_11_21_02",
   "license": "UNLICENSED — maintainer decision required; no redistribution permission is granted by this manifest",
   "normalization": {
     "unicode_normalization": "NFC preferred",
@@ -284,6 +284,108 @@
       },
       "human_reviewed": false,
       "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "corpus/fa_urban_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original synthetic Persian prose for next-token/next-byte language-model experiments.",
+      "topics": [
+        "urban mobility",
+        "wayfinding",
+        "public space",
+        "building energy",
+        "rainwater",
+        "oral history",
+        "urban data",
+        "night lighting"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "corpus/fa_food_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Original synthetic Persian prose for next-token/next-byte language-model experiments.",
+      "topics": [
+        "food storage",
+        "meal planning",
+        "food labels",
+        "soil and irrigation",
+        "pollinators",
+        "packaging",
+        "cooking processes",
+        "local food narratives"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic material generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0005.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not directly consumed by the current plain-text trainer.",
+      "topics": [
+        "urban studies",
+        "food systems",
+        "learning methods",
+        "work practices",
+        "data literacy"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "split_counts": {
+        "train": 18,
+        "validation": 0,
+        "test": 0
+      },
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "conversations/fa_dialogue_0006.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not directly consumed by the current plain-text trainer.",
+      "topics": [
+        "urban studies",
+        "food systems",
+        "learning methods",
+        "work practices",
+        "data literacy"
+      ],
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "split_counts": {
+        "train": 17,
+        "validation": 0,
+        "test": 0
+      },
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
     }
   ],
   "limitations": [
@@ -307,21 +409,21 @@
   ],
   "statistics": {
     "measured_on": "2026-11-21",
-    "text_files": 9,
-    "conversation_files": 4,
-    "text_sections": 131,
-    "text_blocks": 246,
-    "conversation_examples": 151,
-    "text_bytes": 125567,
-    "conversation_bytes": 90517,
-    "total_data_bytes": 216084,
-    "text_characters_including_whitespace": 68972,
-    "text_whitespace_separated_words": 12536,
+    "text_files": 11,
+    "conversation_files": 6,
+    "text_sections": 155,
+    "text_blocks": 294,
+    "conversation_examples": 186,
+    "text_bytes": 150391,
+    "conversation_bytes": 110223,
+    "total_data_bytes": 260614,
+    "text_characters_including_whitespace": 82646,
+    "text_whitespace_separated_words": 15041,
     "exact_normalized_duplicate_text_blocks": 0,
     "exact_duplicate_conversation_pairs": 0,
     "repeated_conversation_instructions": 0,
     "conversation_split_counts": {
-      "train": 135,
+      "train": 170,
       "validation": 8,
       "test": 8
     },
@@ -351,5 +453,6 @@
     "semantic_duplicate_detection": false,
     "factual_verification": false,
     "last_updated": "2026-11-21"
-  }
+  },
+  "limits_note": "This batch is synthetic and not human-reviewed. Automated structural checks do not establish factual accuracy, safety, copyright status, or semantic uniqueness."
 }
