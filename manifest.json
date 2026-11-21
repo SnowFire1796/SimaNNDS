@@ -654,6 +654,17 @@
       "license": "No repository license selected; unlicensed.",
       "human_reviewed": false,
       "source_notes": "272 synthetic prompt-response records derived from original SimaNNDS corpus sections. All records belong to train; validation and test files were not modified."
+    },
+    {
+      "path": "corpus/fa_massive_expansion_0003.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Third large original Persian educational prose volume for next-byte language-model experiments.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original synthetic Persian material across computer architecture, distributed systems, web engineering, cloud computing, discrete mathematics, physics, chemistry, cognitive psychology, computer graphics, urban planning, finance, bioinformatics, reliability engineering, music, and software design. No third-party text imported."
     }
   ],
   "limitations": [
@@ -677,16 +688,16 @@
   ],
   "statistics": {
     "measured_on": "2026-11-21",
-    "text_files": 38,
+    "text_files": 39,
     "conversation_files": 4,
-    "text_sections": 691,
-    "text_blocks": 3047,
+    "text_sections": 826,
+    "text_blocks": 4023,
     "conversation_examples": 514,
-    "text_bytes": 1417141,
+    "text_bytes": 1818280,
     "conversation_bytes": 305757,
-    "total_data_bytes": 1722898,
-    "text_characters_including_whitespace": 779105,
-    "text_whitespace_separated_words": 141101,
+    "total_data_bytes": 2124037,
+    "text_characters_including_whitespace": 1000818,
+    "text_whitespace_separated_words": 181705,
     "exact_normalized_duplicate_text_blocks": 0,
     "exact_duplicate_conversation_pairs": 0,
     "repeated_conversation_instructions": 0,
