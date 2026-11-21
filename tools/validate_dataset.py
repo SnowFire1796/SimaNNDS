@@ -54,11 +54,11 @@ def inspect_text(value: str, label: str, errors: list[str]) -> None:
 def main() -> int:
     errors: list[str] = []
     text_files = sorted(TEXT_DIR.glob("*.txt"))
-    jsonl_files = sorted(CHAT_DIR.glob("*.jsonl"))
+    conversation_files = sorted(CHAT_DIR.glob("*.txt"))
     if not text_files:
         errors.append("no corpus/*.txt files found")
-    if not jsonl_files:
-        errors.append("no conversations/*.jsonl files found")
+    if not conversation_files:
+        errors.append("no conversations/*.txt dialogue files found")
 
     all_blocks: list[str] = []
     total_text_bytes = total_text_chars = total_text_words = 0
@@ -96,51 +96,34 @@ def main() -> int:
     if duplicate_blocks:
         errors.append(f"{duplicate_blocks} duplicate normalized text blocks found")
 
-    for path in jsonl_files:
+    for path in conversation_files:
         raw = read_utf8(path)
         size = path.stat().st_size
         total_conversation_bytes += size
-        local_count = 0
         inspect_text(raw, str(path.relative_to(ROOT)), errors)
-        for line_number, line in enumerate(raw.splitlines(), 1):
-            if not line.strip():
-                errors.append(f"{path.name}:{line_number}: blank JSONL line")
+        split = path.stem.split("_")[2] if len(path.stem.split("_")) >= 4 else ""
+        if split not in split_counts:
+            errors.append(f"{path.name}: filename must identify train, validation, or test split")
+            continue
+        local_count = 0
+        blocks = [part.strip() for part in re.split(r"\\n\\s*\\n", raw) if part.strip()]
+        for index, block in enumerate(blocks, 1):
+            lines = block.splitlines()
+            if len(lines) < 3 or not lines[0].startswith("نمونه ") or not lines[1].startswith("پرسش: ") or not lines[2].startswith("پاسخ: "):
+                errors.append(f"{path.name}: block {index} must contain a numbered sample, پرسش, and پاسخ")
                 continue
-            try:
-                item = json.loads(line)
-            except json.JSONDecodeError as exc:
-                errors.append(f"{path.name}:{line_number}: invalid JSON: {exc}")
+            instruction = lines[1][len("پرسش: "):]
+            response = "\\n".join(lines[2:])[len("پاسخ: "):]
+            if not instruction.strip() or not response.strip():
+                errors.append(f"{path.name}: block {index} has an empty instruction or response")
                 continue
-            if not isinstance(item, dict):
-                errors.append(f"{path.name}:{line_number}: each JSONL row must be an object")
+            if instruction != instruction.strip() or response != response.strip():
+                errors.append(f"{path.name}: block {index} has outer whitespace")
                 continue
-
-            valid = True
-            for key in ("instruction", "response"):
-                if not isinstance(item.get(key), str) or not item[key].strip():
-                    errors.append(f"{path.name}:{line_number}: missing/non-string {key}")
-                    valid = False
-                elif item[key] != item[key].strip():
-                    errors.append(f"{path.name}:{line_number}: {key} has outer whitespace")
-            if item.get("language") != "fa":
-                errors.append(f"{path.name}:{line_number}: language must be 'fa'")
-                valid = False
-            if item.get("provenance") != SYNTHETIC_LABEL:
-                errors.append(f"{path.name}:{line_number}: provenance must be explicit")
-                valid = False
-            split = item.get("split")
-            if not isinstance(split, str) or split not in split_counts:
-                errors.append(f"{path.name}:{line_number}: split must be train, validation, or test")
-                valid = False
-            for key in ("instruction", "response"):
-                value = item.get(key)
-                if isinstance(value, str):
-                    inspect_text(value, f"{path.name}:{line_number}:{key}", errors)
-            if not valid:
-                continue
-
-            instruction_key = comparison_key(item["instruction"])
-            pair_key = instruction_key + "\u241f" + comparison_key(item["response"])
+            inspect_text(instruction, f"{path.name}:{index}:instruction", errors)
+            inspect_text(response, f"{path.name}:{index}:response", errors)
+            instruction_key = comparison_key(instruction)
+            pair_key = instruction_key + "\\u241f" + comparison_key(response)
             if pair_key in conversation_keys:
                 duplicate_pairs += 1
             conversation_keys.add(pair_key)
@@ -150,10 +133,9 @@ def main() -> int:
             split_counts[split] += 1
             local_count += 1
             total_conversation_examples += 1
-
-        if raw and not raw.endswith("\n"):
+        if raw and not raw.endswith("\\n"):
             errors.append(f"{path.relative_to(ROOT)}: missing final newline")
-        print(f"JSONL {path.relative_to(ROOT)}: {local_count} valid examples, {size} bytes")
+        print(f"DIALOGUE {path.relative_to(ROOT)}: {local_count} valid examples, {size} bytes")
 
     if duplicate_pairs:
         errors.append(f"{duplicate_pairs} duplicate conversation pairs found")
@@ -163,7 +145,7 @@ def main() -> int:
     total_data_bytes = total_text_bytes + total_conversation_bytes
     actual_stats = {
         "text_files": len(text_files),
-        "conversation_files": len(jsonl_files),
+        "conversation_files": len(conversation_files),
         "text_sections": total_text_sections,
         "text_blocks": len(all_blocks),
         "conversation_examples": total_conversation_examples,
@@ -201,7 +183,7 @@ def main() -> int:
     if len(listed_paths) != len(manifest_paths):
         errors.append("manifest.json: duplicate file entries found")
     actual_paths = {
-        str(path.relative_to(ROOT)) for path in text_files + jsonl_files
+        str(path.relative_to(ROOT)) for path in text_files + conversation_files
     }
     if manifest_paths != actual_paths:
         missing = sorted(actual_paths - manifest_paths)
