@@ -106,14 +106,14 @@ def main() -> int:
             errors.append(f"{path.name}: filename must identify train, validation, or test split")
             continue
         local_count = 0
-        blocks = [part.strip() for part in re.split(r"\\n\\s*\\n", raw) if part.strip()]
+        blocks = [part.strip() for part in re.split(r"\n\s*\n", raw) if part.strip()]
         for index, block in enumerate(blocks, 1):
             lines = block.splitlines()
             if len(lines) < 3 or not lines[0].startswith("نمونه ") or not lines[1].startswith("پرسش: ") or not lines[2].startswith("پاسخ: "):
                 errors.append(f"{path.name}: block {index} must contain a numbered sample, پرسش, and پاسخ")
                 continue
             instruction = lines[1][len("پرسش: "):]
-            response = "\\n".join(lines[2:])[len("پاسخ: "):]
+            response = "\n".join(lines[2:])[len("پاسخ: "):]
             if not instruction.strip() or not response.strip():
                 errors.append(f"{path.name}: block {index} has an empty instruction or response")
                 continue
@@ -123,7 +123,7 @@ def main() -> int:
             inspect_text(instruction, f"{path.name}:{index}:instruction", errors)
             inspect_text(response, f"{path.name}:{index}:response", errors)
             instruction_key = comparison_key(instruction)
-            pair_key = instruction_key + "\\u241f" + comparison_key(response)
+            pair_key = instruction_key + chr(0x241f) + comparison_key(response)
             if pair_key in conversation_keys:
                 duplicate_pairs += 1
             conversation_keys.add(pair_key)
@@ -133,7 +133,7 @@ def main() -> int:
             split_counts[split] += 1
             local_count += 1
             total_conversation_examples += 1
-        if raw and not raw.endswith("\\n"):
+        if raw and not raw.endswith("\n"):
             errors.append(f"{path.relative_to(ROOT)}: missing final newline")
         print(f"DIALOGUE {path.relative_to(ROOT)}: {local_count} valid examples, {size} bytes")
 
