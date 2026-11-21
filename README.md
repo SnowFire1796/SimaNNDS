@@ -14,7 +14,7 @@ SimaNNDS is a compact Persian-language dataset repository for experiments with t
 
 ## Data card
 
-See [کارت دادهٔ فارسی](docs/DATASET_CARD.fa.md) and the [راهنمای بازبینی انسانی](docs/REVIEW_GUIDE.fa.md).
+See [کارت دادهٔ فارسی](docs/DATASET_CARD.fa.md), the [راهنمای بازبینی انسانی](docs/REVIEW_GUIDE.fa.md), and the [راهنمای پیکره‌های بزرگ بیرونی](docs/EXTERNAL_CORPORA.fa.md).
 
 ## Current snapshot
 
