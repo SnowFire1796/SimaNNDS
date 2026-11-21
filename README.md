@@ -5,7 +5,7 @@ SimaNNDS is a compact Persian-language dataset repository for experiments with t
 ## Repository layout
 
 - `corpus/`: UTF-8 plain-text files for next-token / next-byte language-modeling experiments. Blank lines separate text blocks; each titled section begins with `عنوان:`.
-- `conversations/`: UTF-8 JSON Lines (JSONL) instruction/response examples. These are kept separate from raw language-model text.
+- `conversations/`: UTF-8 plain-text instruction/response examples. Train, validation, and test are separate files.
 - `manifest.json`: dataset provenance, intended uses, limitations, normalization policy, and measured statistics.
 - `docs/DATASET_CARD.fa.md`: Persian-language data card describing scope, provenance, formats, risks, and licensing status.
 - `docs/REVIEW_GUIDE.fa.md`: Persian checklist for human review, source tracking, split discipline, and quality control.
@@ -23,10 +23,10 @@ Snapshot measured on 2026-11-21:
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
 | Plain-text corpus | 19 | 262 titled sections; 589 blank-line-separated text blocks | 253,594 bytes |
-| Conversation examples | 8 | 242 JSONL records | 139,455 bytes |
-| **Total** | **27** | **262 sections + 242 conversations** | **393,049 bytes (about 383.8 KiB)** |
+| Plain-text dialogue | 3 | 242 پرسش/پاسخ records (226 train, 8 validation, 8 test) | 122,088 bytes |
+| **Total** | **22** | **262 sections + 242 dialogue records** | **375,682 bytes (about 366.9 KiB)** |
 
-The text corpus contains 25,301 whitespace-separated words. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The raw text corpus contains 25,301 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
 Conversation split counts: **train 226**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
@@ -52,31 +52,13 @@ Current text files:
 - `fa_biology_0001.txt`: cells, enzymes, genetics, evolution, ecology, microbiomes, and experimental design.
 - `fa_physics_0001.txt`: mechanics, energy, fluids, heat, electricity, magnetism, waves, optics, and measurement.
 
-Conversation files:
+Dialogue files:
 
-- `fa_dialogue_0001.jsonl`: initial question-and-answer examples.
-- `fa_dialogue_0002.jsonl`: examples covering writing, data reasoning, software development, accessibility, privacy, and practical communication.
-- `fa_dialogue_0003.jsonl`: additional software, reasoning, accessibility, privacy, writing, debugging, and low-resource computing examples; includes held-out split labels.
-- `fa_dialogue_0004.jsonl`: additional original examples on networking, operating systems, databases, compilers, Unicode, robotics, and measurement.
-- `fa_dialogue_0005.jsonl` and `fa_dialogue_0006.jsonl`: urban studies, food systems, learning methods, work practices, and data literacy.
-- `fa_dialogue_0007.jsonl`: craft, materials, repair, ecology, waste management, and field observation.
-- `fa_dialogue_0008.jsonl`: 30 additional train examples covering mathematics, history, economics, linguistics, biology, physics, and scientific reasoning.
+- `fa_dialogue_train_0001.txt`: 226 training examples.
+- `fa_dialogue_validation_0001.txt`: 8 held-out validation examples.
+- `fa_dialogue_test_0001.txt`: 8 held-out test examples.
 
-## Data format
-
-Each JSONL line is one independent JSON object. The current schema is:
-
-```json
-{
-  "instruction": "متن درخواست یا پرسش به فارسی",
-  "response": "پاسخ به فارسی",
-  "language": "fa",
-  "provenance": "assistant_authored_synthetic",
-  "split": "train"
-}
-```
-
-The allowed split values are `train`, `validation`, and `test`. Keep held-out records out of training. The conversation records are auxiliary instruction data. The current SimaNN byte-level RNN trainer consumes plain text; it does **not** directly train on this JSONL format. A future adapter or a training objective designed for instruction-response pairs is required. Do not concatenate JSONL into the raw corpus as if it were ordinary prose.
+Each record contains a numbered sample, `پرسش:`, and `پاسخ:`. The split is represented by the filename; never mix validation or test into training.
 
 ## Provenance and limitations
 
@@ -103,11 +85,11 @@ From the repository root, run:
 python3 tools/validate_dataset.py
 ```
 
-The validator checks UTF-8 decoding, NFC, Persian yeh/kaf code points, final newlines, trailing whitespace, duplicate text blocks, JSONL syntax and required fields, provenance labels, language/split values, repeated conversation prompts, manifest inventory, and measured statistics. It is a structural check only: it does not verify factual claims, safety, copyright status, semantic similarity, or expert-level linguistic quality.
+The validator checks UTF-8 decoding, NFC, Persian yeh/kaf code points, final newlines, trailing whitespace, duplicate text blocks, numbered dialogue-record structure, train/validation/test file naming, repeated prompts, manifest inventory, and measured statistics. It is a structural check only: it does not verify factual claims, safety, copyright status, semantic similarity, or expert-level linguistic quality.
 
 ## Training guidance
 
-Use only the files under `corpus/` for the current plain-text SimaNN training path. Keep the conversation JSONL files separate. Never train on the validation or test records when using them for evaluation. Because the corpus is small and synthetic, start with pipeline smoke tests and inspect generated samples; do not interpret a falling training loss as evidence that the model has learned reliable facts or conversational ability.
+Use files under `corpus/` for raw prose and `conversations/fa_dialogue_train_0001.txt` for dialogue training. Keep validation and test files held out. Never train on the validation or test records when using them for evaluation. Because the corpus is small and synthetic, start with pipeline smoke tests and inspect generated samples; do not interpret a falling training loss as evidence that the model has learned reliable facts or conversational ability.
 
 The repository is deliberately text-only and small. It avoids model weights, archives, and other large binary assets so it remains practical to clone and inspect on low-storage, CPU-only computers.
 
