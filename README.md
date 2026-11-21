@@ -22,13 +22,13 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 13 | 181 titled sections; 346 blank-line-separated text blocks | 175,079 bytes |
-| Conversation examples | 7 | 212 JSONL records | 125,053 bytes |
-| **Total** | **20** | **181 sections + 212 conversations** | **300,132 bytes (about 293.1 KiB)** |
+| Plain-text corpus | 19 | 262 titled sections; 589 blank-line-separated text blocks | 253,594 bytes |
+| Conversation examples | 8 | 242 JSONL records | 139,455 bytes |
+| **Total** | **27** | **262 sections + 242 conversations** | **393,049 bytes (about 383.8 KiB)** |
 
-The text corpus contains 17,528 whitespace-separated words. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The text corpus contains 25,301 whitespace-separated words. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
-Conversation split counts: **train 196**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
+Conversation split counts: **train 226**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
 Current text files:
 
@@ -45,6 +45,12 @@ Current text files:
 - `fa_food_0001.txt`: food storage, meal planning, labels, soil and irrigation, pollinators, packaging, cooking, and local food narratives.
 - `fa_materials_0001.txt`: craft materials, restoration, ceramics, textiles, repairability, life-cycle thinking, and workshop safety.
 - `fa_ecology_0001.txt`: wetlands, water sampling, birds, coastal change, biodiversity, waste, light pollution, and climate data.
+- `fa_mathematics_0001.txt`: mathematical definitions, proof, functions, probability, geometry, measurement, and modeling.
+- `fa_history_methods_0001.txt`: historical sources, chronology, archaeology, oral history, archives, migration, and heritage.
+- `fa_economics_civics_0001.txt`: household budgets, inflation, markets, public goods, civic participation, and policy evaluation.
+- `fa_linguistics_0001.txt`: phonology, morphology, semantics, translation, Persian orthography, corpus design, and conversation.
+- `fa_biology_0001.txt`: cells, enzymes, genetics, evolution, ecology, microbiomes, and experimental design.
+- `fa_physics_0001.txt`: mechanics, energy, fluids, heat, electricity, magnetism, waves, optics, and measurement.
 
 Conversation files:
 
@@ -54,6 +60,7 @@ Conversation files:
 - `fa_dialogue_0004.jsonl`: additional original examples on networking, operating systems, databases, compilers, Unicode, robotics, and measurement.
 - `fa_dialogue_0005.jsonl` and `fa_dialogue_0006.jsonl`: urban studies, food systems, learning methods, work practices, and data literacy.
 - `fa_dialogue_0007.jsonl`: craft, materials, repair, ecology, waste management, and field observation.
+- `fa_dialogue_0008.jsonl`: 30 additional train examples covering mathematics, history, economics, linguistics, biology, physics, and scientific reasoning.
 
 ## Data format
 
