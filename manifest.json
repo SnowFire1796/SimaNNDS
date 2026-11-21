@@ -32,13 +32,6 @@
       "source_type": "assistant_authored_synthetic",
       "third_party_material": false,
       "license": "No repository-wide license selected yet"
-    },
-    {
-      "path": "conversations/fa_dialogue_0001.jsonl",
-      "provenance": "Original synthetic Persian instruction and dialogue examples authored for SimaNNDS",
-      "source_type": "assistant_authored_synthetic",
-      "third_party_material": false,
-      "license": "No repository-wide license selected yet"
     }
   ],
   "limitations": [
