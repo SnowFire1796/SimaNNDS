@@ -77,7 +77,7 @@ def main() -> int:
         total_text_bytes += size
         total_text_chars += len(raw)
         total_text_words += len(raw.split())
-        blocks = [part.strip() for part in re.split(r"\n\s*\n", raw) if part.strip()]
+        blocks = [part.strip() for part in re.split(r"(?m)(?=^نمونه \d+\n)", raw) if part.strip()]
         sections = len(re.findall(r"^عنوان:", raw, flags=re.MULTILINE))
         total_text_sections += sections
         all_blocks.extend(blocks)
