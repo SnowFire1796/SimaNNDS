@@ -127,7 +127,7 @@ def main() -> int:
                 errors.append(f"{path.name}:{line_number}: provenance must be explicit")
                 valid = False
             split = item.get("split")
-            if split not in split_counts:
+            if not isinstance(split, str) or split not in split_counts:
                 errors.append(f"{path.name}:{line_number}: split must be train, validation, or test")
                 valid = False
             for key in ("instruction", "response"):
@@ -182,12 +182,22 @@ def main() -> int:
         errors.append(f"manifest.json: cannot read valid UTF-8 JSON: {exc}")
         manifest = {}
 
-    manifest_files = manifest.get("files", []) if isinstance(manifest, dict) else []
-    manifest_paths = {
+    if not isinstance(manifest, dict):
+        errors.append("manifest.json: top-level value must be an object")
+        manifest = {}
+
+    manifest_files = manifest.get("files", [])
+    if not isinstance(manifest_files, list):
+        errors.append("manifest.json: files must be a list")
+        manifest_files = []
+    listed_paths = [
         entry.get("path")
         for entry in manifest_files
         if isinstance(entry, dict) and isinstance(entry.get("path"), str)
-    }
+    ]
+    manifest_paths = set(listed_paths)
+    if len(listed_paths) != len(manifest_paths):
+        errors.append("manifest.json: duplicate file entries found")
     actual_paths = {
         str(path.relative_to(ROOT)) for path in text_files + jsonl_files
     }
@@ -213,6 +223,9 @@ def main() -> int:
             errors.append(f"manifest {path}: third_party_material must be false or explicitly reviewed")
 
     provenance_policy = manifest.get("provenance_policy", {})
+    if not isinstance(provenance_policy, dict):
+        errors.append("manifest provenance_policy must be an object")
+        provenance_policy = {}
     if provenance_policy.get("synthetic_label") != SYNTHETIC_LABEL:
         errors.append("manifest provenance_policy has an unexpected synthetic label")
     if provenance_policy.get("external_sources") != []:
