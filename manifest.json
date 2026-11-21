@@ -610,6 +610,17 @@
       "license": "No repository license selected; unlicensed.",
       "human_reviewed": false,
       "source_notes": "Original assistant-authored material generated for this SimaNNDS batch; no external source was used."
+    },
+    {
+      "path": "corpus/fa_massive_expansion_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Large original Persian educational prose expansion for next-byte language-model experiments.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "human_reviewed": false,
+      "source_notes": "Original assistant-authored synthetic text across networking, databases, cybersecurity, operating systems, compilers, robotics, signal processing, numerical methods, geoscience, public policy, media, research, economics, biology, and product design. No third-party text imported."
     }
   ],
   "limitations": [
@@ -633,16 +644,16 @@
   ],
   "statistics": {
     "measured_on": "2026-11-21",
-    "text_files": 35,
+    "text_files": 36,
     "conversation_files": 3,
-    "text_sections": 377,
-    "text_blocks": 819,
+    "text_sections": 512,
+    "text_blocks": 1795,
     "conversation_examples": 242,
-    "text_bytes": 365057,
+    "text_bytes": 749125,
     "conversation_bytes": 122088,
-    "total_data_bytes": 487145,
-    "text_characters_including_whitespace": 200628,
-    "text_whitespace_separated_words": 36306,
+    "total_data_bytes": 871213,
+    "text_characters_including_whitespace": 412297,
+    "text_whitespace_separated_words": 74962,
     "exact_normalized_duplicate_text_blocks": 0,
     "exact_duplicate_conversation_pairs": 0,
     "repeated_conversation_instructions": 0,
