@@ -3,53 +3,133 @@
   "language": "fa",
   "encoding": "UTF-8",
   "created": "2026-11-21",
-  "status": "starter_dataset",
-  "license": "UNLICENSED — maintainer decision required",
+  "updated": "2026-11-21",
+  "status": "small_synthetic_starter_corpus",
+  "license": "UNLICENSED — maintainer decision required; no redistribution permission is granted by this manifest",
   "normalization": {
+    "unicode_normalization": "NFC preferred",
     "preferred_yeh": "U+06CC",
     "preferred_kaf": "U+06A9",
     "zwnj": "U+200C",
-    "policy": "Consistent Persian orthography without destructive rewriting"
+    "policy": "Use Persian yeh and kaf, consistent ZWNJ in standard compounds and prefixes, readable spacing, and non-destructive normalization. Preserve register and meaning."
   },
-  "sources": [
+  "provenance_policy": {
+    "synthetic_label": "assistant_authored_synthetic",
+    "statement": "All current files contain original synthetic Persian material authored specifically for this repository. No third-party text was imported in the recorded batches.",
+    "external_sources": [],
+    "external_license_notes": "No external material is currently included. If third-party material is added later, record the exact source, collection date, license evidence, permitted use, and transformations before committing."
+  },
+  "files": [
     {
       "path": "corpus/fa_general_0001.txt",
-      "provenance": "Original synthetic Persian passages authored for SimaNNDS",
-      "source_type": "assistant_authored_synthetic",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Small-scale next-token or next-byte language-model pipeline tests and general explanatory Persian prose.",
       "third_party_material": false,
-      "license": "No repository-wide license selected yet"
-    },
-    {
-      "path": "conversations/fa_dialogue_0001.jsonl",
-      "provenance": "Original synthetic Persian instruction and dialogue examples authored for SimaNNDS",
-      "source_type": "assistant_authored_synthetic",
-      "third_party_material": false,
-      "license": "No repository-wide license selected yet"
+      "license": "No repository license selected; unlicensed."
     },
     {
       "path": "corpus/fa_everyday_0001.txt",
-      "provenance": "Original synthetic Persian prose and dialogue authored for SimaNNDS",
-      "source_type": "assistant_authored_synthetic",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with everyday narrative and informal dialogue registers.",
       "third_party_material": false,
-      "license": "No repository-wide license selected yet"
+      "license": "No repository license selected; unlicensed."
+    },
+    {
+      "path": "corpus/fa_science_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with accessible explanatory prose about measurement, probability, materials, sound, observation, and related topics.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed."
+    },
+    {
+      "path": "corpus/fa_culture_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with cultural, artistic, linguistic, and descriptive registers.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed."
+    },
+    {
+      "path": "corpus/fa_practical_0001.txt",
+      "kind": "plain_text_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Language-modeling experiments with practical narratives, planning, household topics, and short everyday dialogue.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed."
+    },
+    {
+      "path": "conversations/fa_dialogue_0001.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Auxiliary instruction/response format experiments; not directly consumable by the current plain-text SimaNN trainer.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ]
+    },
+    {
+      "path": "conversations/fa_dialogue_0002.jsonl",
+      "kind": "instruction_response_jsonl",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Additional synthetic instruction/response examples for future adapter or supervised fine-tuning experiments; not directly consumable by the current plain-text SimaNN trainer.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ]
     }
   ],
   "limitations": [
-    "This is a small starter corpus, not a comprehensive Persian language dataset.",
-    "Synthetic passages may contain simplifications and should not be treated as verified factual reference material.",
-    "Conversation JSONL is not directly consumed by the current SimaNN text-only trainer.",
-    "The current byte-level RNN has very limited model capacity."
+    "This is a small synthetic starter dataset, not a comprehensive or representative Persian corpus.",
+    "Synthetic material may contain simplifications, omissions, or factual errors and has not undergone expert human review.",
+    "No third-party sources were imported; no external source license is claimed.",
+    "The repository license remains undecided; public visibility does not grant reuse permission.",
+    "Conversation examples currently use only the train split and are not directly supported by the current SimaNN plain-text trainer.",
+    "The current byte-level RNN has limited capacity; dataset size alone cannot make it a capable assistant.",
+    "Structural validation does not establish factual correctness, safety, copyright clearance, or linguistic quality."
   ],
   "next_steps": [
-    "Expand the raw-text corpus with additional original domains and styles.",
-    "Evaluate and document properly licensed public Persian corpora before importing them.",
-    "Add stronger deduplication and text-quality checks.",
-    "Implement a conversation/SFT data format only after the model architecture supports it."
+    "Have Persian-language reviewers assess fluency, register diversity, orthography, and factual claims.",
+    "Create separately reviewed validation and test sets before measuring generalization; avoid leakage from training data.",
+    "Add more naturally varied Persian text and domain coverage without inflating the corpus with repetitive templates.",
+    "Implement a documented converter or training path for instruction/response JSONL only when the model objective supports it.",
+    "Evaluate properly licensed public Persian corpora before importing any external data.",
+    "Select and document a repository/data license after reviewing ownership and intended redistribution."
   ],
   "statistics": {
-    "raw_text_passages": 121,
-    "conversation_examples": 40,
-    "training_data_bytes": 73619,
-    "note": "Counts measured on the initial committed data files; structural counts only, not a linguistic quality score."
+    "measured_on": "2026-11-21",
+    "text_files": 5,
+    "conversation_files": 2,
+    "text_sections": 83,
+    "text_blocks": 186,
+    "conversation_examples": 78,
+    "text_bytes": 90154,
+    "conversation_bytes": 45784,
+    "total_data_bytes": 135938,
+    "text_characters_including_whitespace": 49535,
+    "text_whitespace_separated_words": 9021,
+    "exact_normalized_duplicate_text_blocks": 0,
+    "exact_duplicate_conversation_pairs": 0,
+    "repeated_conversation_instructions": 0,
+    "note": "Byte sizes are UTF-8 file sizes. Text blocks are separated by blank lines; titled sections are counted by the 'عنوان:' heading. Word counts use whitespace splitting and are not model-token counts. Duplicate checks are normalized exact comparisons, not semantic near-duplicate detection."
   }
 }
