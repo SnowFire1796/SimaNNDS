@@ -7,13 +7,14 @@ SimaNNDS is a compact Persian-language dataset repository for experiments with t
 - `corpus/`: UTF-8 plain-text files for next-token / next-byte language-modeling experiments. Blank lines separate text blocks; each titled section begins with `عنوان:`.
 - `conversations/`: UTF-8 JSON Lines (JSONL) instruction/response examples. These are kept separate from raw language-model text.
 - `manifest.json`: dataset provenance, intended uses, limitations, normalization policy, and measured statistics.
-- `docs/DATASET_CARD.fa.md`: Persian-language data card describing scope, provenance, formats, risks, and appropriate use.
+- `docs/DATASET_CARD.fa.md`: Persian-language data card describing scope, provenance, formats, risks, and licensing status.
+- `docs/REVIEW_GUIDE.fa.md`: Persian checklist for human review, source tracking, split discipline, and quality control.
 - `tools/validate_dataset.py`: standard-library-only structural validator and statistics report.
 - `.github/workflows/validate-dataset.yml`: runs the validator on relevant pushes and pull requests.
 
 ## Data card
 
-See [کارت دادهٔ فارسی](docs/DATASET_CARD.fa.md) for a Persian-language description of the dataset, its intended use, limitations, and licensing status.
+See [کارت دادهٔ فارسی](docs/DATASET_CARD.fa.md) and the [راهنمای بازبینی انسانی](docs/REVIEW_GUIDE.fa.md).
 
 ## Current snapshot
 
@@ -21,11 +22,13 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 5 | 83 titled sections; 186 blank-line-separated text blocks | 90,157 bytes |
-| Conversation examples | 2 | 78 JSONL records | 45,784 bytes |
-| **Total** | **7** | **83 sections + 78 conversations** | **135,941 bytes (about 133 KiB)** |
+| Plain-text corpus | 8 | 119 titled sections; 222 blank-line-separated text blocks | 110,811 bytes |
+| Conversation examples | 3 | 126 JSONL records | 74,318 bytes |
+| **Total** | **11** | **119 sections + 126 conversations** | **185,129 bytes (about 180.8 KiB)** |
 
-The text corpus contains about 9,021 whitespace-separated tokens. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator.
+The text corpus contains 11,080 whitespace-separated words. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+
+Conversation split counts: **train 110**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
 Current text files:
 
@@ -34,11 +37,15 @@ Current text files:
 - `fa_science_0001.txt`: measurement, probability, materials, acoustics, astronomy, food science, soil, maps, prototyping, and charts.
 - `fa_culture_0001.txt`: oral history, photography, theatre, craft, museums, translation, language variation, typography, and responsible visiting.
 - `fa_practical_0001.txt`: moving, shared household work, events, bicycle care, cooking, plant observation, appointments, budgeting, and pet responsibility.
+- `fa_digital_0001.txt`: software security, backup, networks, logging, version control, accessibility, metadata, and compression.
+- `fa_reasoning_0001.txt`: problem formulation, estimation, units, charts, sampling, probability, algorithms, state machines, and numerical reasoning.
+- `fa_observation_0001.txt`: field notes, public spaces, access, household resources, repair, waste, sound, lighting, plants, and product design.
 
 Conversation files:
 
 - `fa_dialogue_0001.jsonl`: initial question-and-answer examples.
-- `fa_dialogue_0002.jsonl`: additional examples covering writing, data reasoning, software development, accessibility, privacy, and practical communication.
+- `fa_dialogue_0002.jsonl`: examples covering writing, data reasoning, software development, accessibility, privacy, and practical communication.
+- `fa_dialogue_0003.jsonl`: additional software, reasoning, accessibility, privacy, writing, debugging, and low-resource computing examples; includes held-out split labels.
 
 ## Data format
 
@@ -54,11 +61,11 @@ Each JSONL line is one independent JSON object. The current schema is:
 }
 ```
 
-The conversation records are auxiliary instruction data. The current SimaNN byte-level RNN trainer consumes plain text; it does **not** directly train on this JSONL format. A future adapter or a training objective designed for instruction-response pairs is required. Do not concatenate JSONL into the raw corpus as if it were ordinary prose.
+The allowed split values are `train`, `validation`, and `test`. Keep held-out records out of training. The conversation records are auxiliary instruction data. The current SimaNN byte-level RNN trainer consumes plain text; it does **not** directly train on this JSONL format. A future adapter or a training objective designed for instruction-response pairs is required. Do not concatenate JSONL into the raw corpus as if it were ordinary prose.
 
 ## Provenance and limitations
 
-All material currently in this repository is original synthetic Persian text authored specifically for SimaNNDS. No external websites, books, articles, or third-party datasets were imported for these batches. The synthetic examples are not quotations or verified human conversations.
+All material currently in this repository is original synthetic Persian text authored specifically for SimaNNDS. No external websites, books, articles, or third-party datasets were imported for these batches. The synthetic examples are not quotations or verified human conversations, and no independent human review is claimed.
 
 Synthetic text can contain simplifications, omissions, or factual mistakes. It is useful for testing data pipelines and early experiments, but it is not a substitute for a large, diverse, professionally reviewed Persian corpus. The repository does not claim that generated samples represent the frequency or distribution of natural Persian usage.
 
@@ -81,11 +88,11 @@ From the repository root, run:
 python3 tools/validate_dataset.py
 ```
 
-The validator checks UTF-8 decoding, expected Persian yeh/kaf code points, final newlines, duplicate text blocks, JSONL syntax and fields, provenance labels, language/split values, repeated conversation prompts, and byte/character/word statistics. It is a structural check only: it does not verify factual claims, safety, copyright status, or expert-level linguistic quality.
+The validator checks UTF-8 decoding, NFC, Persian yeh/kaf code points, final newlines, trailing whitespace, duplicate text blocks, JSONL syntax and required fields, provenance labels, language/split values, repeated conversation prompts, manifest inventory, and measured statistics. It is a structural check only: it does not verify factual claims, safety, copyright status, semantic similarity, or expert-level linguistic quality.
 
 ## Training guidance
 
-Use only the files under `corpus/` for the current plain-text SimaNN training path. Keep the conversation JSONL files separate. Because the corpus is small and synthetic, start with pipeline smoke tests and inspect generated samples; do not interpret a falling training loss as evidence that the model has learned reliable facts or conversational ability.
+Use only the files under `corpus/` for the current plain-text SimaNN training path. Keep the conversation JSONL files separate. Never train on the validation or test records when using them for evaluation. Because the corpus is small and synthetic, start with pipeline smoke tests and inspect generated samples; do not interpret a falling training loss as evidence that the model has learned reliable facts or conversational ability.
 
 The repository is deliberately text-only and small. It avoids model weights, archives, and other large binary assets so it remains practical to clone and inspect on low-storage, CPU-only computers.
 
