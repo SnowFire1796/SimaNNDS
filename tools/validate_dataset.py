@@ -8,6 +8,7 @@ from __future__ import annotations
 
 # Structural checks are necessary, but they do not replace factual or human review.
 # Supports both raw prose TXT and split-preserving instruction/response TXT.
+# Dataset inventory and recorded statistics are checked on every validation run.
 
 import json
 import re
