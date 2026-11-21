@@ -15,9 +15,9 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 5 | 83 titled sections; 186 blank-line-separated text blocks | 90,154 bytes |
+| Plain-text corpus | 5 | 83 titled sections; 186 blank-line-separated text blocks | 90,157 bytes |
 | Conversation examples | 2 | 78 JSONL records | 45,784 bytes |
-| **Total** | **7** | **83 sections + 78 conversations** | **135,938 bytes (about 133 KiB)** |
+| **Total** | **7** | **83 sections + 78 conversations** | **135,941 bytes (about 133 KiB)** |
 
 The text corpus contains about 9,021 whitespace-separated tokens. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator.
 
