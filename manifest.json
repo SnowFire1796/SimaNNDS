@@ -76,42 +76,6 @@
       "source_notes": "Original assistant-authored synthetic material; no external source was used."
     },
     {
-      "path": "conversations/fa_dialogue_0001.jsonl",
-      "kind": "instruction_response_jsonl",
-      "provenance": "assistant_authored_synthetic",
-      "generation_date": "2026-11-21",
-      "intended_use": "Auxiliary instruction/response format experiments; not directly consumable by the current plain-text SimaNN trainer.",
-      "third_party_material": false,
-      "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
-      "human_reviewed": false,
-      "source_notes": "Original assistant-authored synthetic material; no external source was used."
-    },
-    {
-      "path": "conversations/fa_dialogue_0002.jsonl",
-      "kind": "instruction_response_jsonl",
-      "provenance": "assistant_authored_synthetic",
-      "generation_date": "2026-11-21",
-      "intended_use": "Additional synthetic instruction/response examples for future adapter or supervised fine-tuning experiments; not directly consumable by the current plain-text SimaNN trainer.",
-      "third_party_material": false,
-      "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
-      "human_reviewed": false,
-      "source_notes": "Original assistant-authored synthetic material; no external source was used."
-    },
-    {
       "path": "corpus/fa_digital_0001.txt",
       "kind": "plain_text_lm",
       "provenance": "assistant_authored_synthetic",
@@ -178,39 +142,6 @@
       "license": "No repository license selected; unlicensed."
     },
     {
-      "path": "conversations/fa_dialogue_0003.jsonl",
-      "kind": "instruction_response_jsonl",
-      "provenance": "assistant_authored_synthetic",
-      "generation_date": "2026-11-21",
-      "intended_use": "Auxiliary instruction/response examples for future supervised instruction experiments; includes train, validation, and test labels and is not directly consumable by the current plain-text trainer.",
-      "topics": [
-        "software engineering",
-        "data reasoning",
-        "accessibility",
-        "privacy",
-        "technical writing",
-        "study skills",
-        "debugging",
-        "low-resource computing"
-      ],
-      "third_party_material": false,
-      "source_notes": "Original synthetic instruction/response pairs authored for SimaNNDS; no external source was used.",
-      "human_reviewed": false,
-      "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
-      "split_counts": {
-        "train": 32,
-        "validation": 8,
-        "test": 8
-      }
-    },
-    {
       "path": "corpus/fa_infrastructure_0001.txt",
       "kind": "plain_text_lm",
       "provenance": "assistant_authored_synthetic",
@@ -234,56 +165,6 @@
       "license": "No repository license selected; unlicensed.",
       "human_reviewed": false,
       "source_notes": "Original assistant-authored synthetic material generated for this SimaNNDS batch; no external source was used."
-    },
-    {
-      "path": "conversations/fa_dialogue_0004.jsonl",
-      "kind": "instruction_response_jsonl",
-      "provenance": "assistant_authored_synthetic",
-      "generation_date": "2026-11-21",
-      "intended_use": "Auxiliary instruction/response examples for future supervised instruction experiments; not directly consumable by the current plain-text SimaNN trainer.",
-      "topics": [
-        "DNS",
-        "TLS",
-        "browser caching",
-        "event loops",
-        "mutexes",
-        "database migrations",
-        "indexes",
-        "transactions",
-        "compiler stages",
-        "linking",
-        "Unicode",
-        "endianness",
-        "memory allocation",
-        "file descriptors",
-        "shell pipelines",
-        "processes and threads",
-        "continuous integration",
-        "binary formats",
-        "calibration",
-        "meteorology",
-        "geology",
-        "coordinate systems",
-        "robotics",
-        "load testing",
-        "time zones"
-      ],
-      "third_party_material": false,
-      "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
-      "split_counts": {
-        "train": 25,
-        "validation": 0,
-        "test": 0
-      },
-      "human_reviewed": false,
-      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
     },
     {
       "path": "corpus/fa_urban_0001.txt",
@@ -328,66 +209,6 @@
       "source_notes": "Original assistant-authored synthetic material generated for this SimaNNDS batch; no external source was used."
     },
     {
-      "path": "conversations/fa_dialogue_0005.jsonl",
-      "kind": "instruction_response_jsonl",
-      "provenance": "assistant_authored_synthetic",
-      "generation_date": "2026-11-21",
-      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not directly consumed by the current plain-text trainer.",
-      "topics": [
-        "urban studies",
-        "food systems",
-        "learning methods",
-        "work practices",
-        "data literacy"
-      ],
-      "third_party_material": false,
-      "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
-      "split_counts": {
-        "train": 18,
-        "validation": 0,
-        "test": 0
-      },
-      "human_reviewed": false,
-      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
-    },
-    {
-      "path": "conversations/fa_dialogue_0006.jsonl",
-      "kind": "instruction_response_jsonl",
-      "provenance": "assistant_authored_synthetic",
-      "generation_date": "2026-11-21",
-      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not directly consumed by the current plain-text trainer.",
-      "topics": [
-        "urban studies",
-        "food systems",
-        "learning methods",
-        "work practices",
-        "data literacy"
-      ],
-      "third_party_material": false,
-      "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
-      "split_counts": {
-        "train": 17,
-        "validation": 0,
-        "test": 0
-      },
-      "human_reviewed": false,
-      "source_notes": "Original assistant-authored synthetic instruction/response pairs generated for this SimaNNDS batch; no external source was used."
-    },
-    {
       "path": "corpus/fa_materials_0001.txt",
       "kind": "plain_text_lm",
       "provenance": "assistant_authored_synthetic",
@@ -429,37 +250,6 @@
       "license": "No repository license selected; unlicensed.",
       "human_reviewed": false,
       "source_notes": "Original assistant-authored synthetic material for SimaNNDS; no external source was used."
-    },
-    {
-      "path": "conversations/fa_dialogue_0007.jsonl",
-      "kind": "instruction_response_jsonl",
-      "provenance": "assistant_authored_synthetic",
-      "generation_date": "2026-11-21",
-      "intended_use": "Auxiliary synthetic Persian instruction/response examples for future supervised instruction experiments; not consumed by the current plain-text trainer.",
-      "topics": [
-        "craft and materials",
-        "repair",
-        "environmental observation",
-        "ecology",
-        "waste management",
-        "field methods"
-      ],
-      "third_party_material": false,
-      "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
-      "split_counts": {
-        "train": 26,
-        "validation": 0,
-        "test": 0
-      },
-      "human_reviewed": false,
-      "source_notes": "Original assistant-authored synthetic instruction/response pairs for SimaNNDS; no external source was used."
     },
     {
       "path": "corpus/fa_mathematics_0001.txt",
@@ -613,21 +403,11 @@
       "source_notes": "Original assistant-authored synthetic material; no external source was used."
     },
     {
-      "path": "conversations/fa_dialogue_0008.jsonl",
-      "kind": "instruction_response_jsonl",
+      "path": "conversations/fa_dialogue_train_0001.txt",
+      "kind": "plain_text_conversation_lm",
       "provenance": "assistant_authored_synthetic",
       "generation_date": "2026-11-21",
-      "intended_use": "Auxiliary synthetic Persian instruction-response examples for future supervised instruction experiments; not consumed by the current plain-text SimaNN trainer.",
-      "topics": [
-        "mathematics",
-        "historical methods",
-        "economics",
-        "civic data",
-        "linguistics",
-        "biology",
-        "physics",
-        "scientific reasoning"
-      ],
+      "intended_use": "Plain-text instruction/response examples for next-byte language-model training; split preserved in dedicated train, validation, or test files.",
       "third_party_material": false,
       "license": "No repository license selected; unlicensed.",
       "schema": [
@@ -637,13 +417,44 @@
         "provenance",
         "split"
       ],
-      "split_counts": {
-        "train": 30,
-        "validation": 0,
-        "test": 0
-      },
       "human_reviewed": false,
-      "source_notes": "Original assistant-authored synthetic instruction/response pairs; no external source was used."
+      "source_notes": "Converted from original JSONL records without changing wording. Contains 226 train examples."
+    },
+    {
+      "path": "conversations/fa_dialogue_validation_0001.txt",
+      "kind": "plain_text_conversation_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Plain-text instruction/response examples for next-byte language-model training; split preserved in dedicated train, validation, or test files.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "human_reviewed": false,
+      "source_notes": "Converted from original JSONL records without changing wording. Contains 8 validation examples."
+    },
+    {
+      "path": "conversations/fa_dialogue_test_0001.txt",
+      "kind": "plain_text_conversation_lm",
+      "provenance": "assistant_authored_synthetic",
+      "generation_date": "2026-11-21",
+      "intended_use": "Plain-text instruction/response examples for next-byte language-model training; split preserved in dedicated train, validation, or test files.",
+      "third_party_material": false,
+      "license": "No repository license selected; unlicensed.",
+      "schema": [
+        "instruction",
+        "response",
+        "language",
+        "provenance",
+        "split"
+      ],
+      "human_reviewed": false,
+      "source_notes": "Converted from original JSONL records without changing wording. Contains 8 test examples."
     }
   ],
   "limitations": [
@@ -668,13 +479,13 @@
   "statistics": {
     "measured_on": "2026-11-21",
     "text_files": 19,
-    "conversation_files": 8,
+    "conversation_files": 3,
     "text_sections": 262,
     "text_blocks": 589,
     "conversation_examples": 242,
     "text_bytes": 253594,
-    "conversation_bytes": 139455,
-    "total_data_bytes": 393049,
+    "conversation_bytes": 122088,
+    "total_data_bytes": 375682,
     "text_characters_including_whitespace": 139392,
     "text_whitespace_separated_words": 25301,
     "exact_normalized_duplicate_text_blocks": 0,
@@ -685,7 +496,7 @@
       "validation": 8,
       "test": 8
     },
-    "note": "Byte sizes are UTF-8 file sizes. Text blocks are separated by blank lines; titled sections are counted by the 'عنوان:' heading. Word counts use whitespace splitting and are not model-token counts. Duplicate checks are normalized exact comparisons, not semantic near-duplicate detection. Split counts describe synthetic records and do not establish evaluation quality."
+    "note": "UTF-8 byte sizes. Raw language-model text is stored in corpus/*.txt. Instruction/response examples are plain TXT in conversations/, with train, validation, and test kept in separate files. Conversation counts refer to parsed پرسش/پاسخ records."
   },
   "documentation": [
     "docs/DATASET_CARD.fa.md",
