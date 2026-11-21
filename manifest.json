@@ -410,15 +410,8 @@
       "intended_use": "Plain-text instruction/response examples for next-byte language-model training; split preserved in dedicated train, validation, or test files.",
       "third_party_material": false,
       "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
       "human_reviewed": false,
-      "source_notes": "Converted from original JSONL records without changing wording. Contains 226 train examples."
+      "source_notes": "Original synthetic instruction/response examples stored as plain text. Contains 226 train examples; split is preserved by filename."
     },
     {
       "path": "conversations/fa_dialogue_validation_0001.txt",
@@ -428,15 +421,8 @@
       "intended_use": "Plain-text instruction/response examples for next-byte language-model training; split preserved in dedicated train, validation, or test files.",
       "third_party_material": false,
       "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
       "human_reviewed": false,
-      "source_notes": "Converted from original JSONL records without changing wording. Contains 8 validation examples."
+      "source_notes": "Original synthetic instruction/response examples stored as plain text. Contains 8 validation examples; split is preserved by filename."
     },
     {
       "path": "conversations/fa_dialogue_test_0001.txt",
@@ -446,15 +432,8 @@
       "intended_use": "Plain-text instruction/response examples for next-byte language-model training; split preserved in dedicated train, validation, or test files.",
       "third_party_material": false,
       "license": "No repository license selected; unlicensed.",
-      "schema": [
-        "instruction",
-        "response",
-        "language",
-        "provenance",
-        "split"
-      ],
       "human_reviewed": false,
-      "source_notes": "Converted from original JSONL records without changing wording. Contains 8 test examples."
+      "source_notes": "Original synthetic instruction/response examples stored as plain text. Contains 8 test examples; split is preserved by filename."
     },
     {
       "path": "corpus/fa_computer_science_0001.txt",
