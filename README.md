@@ -22,11 +22,11 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 19 | 262 titled sections; 589 blank-line-separated text blocks | 253,594 bytes |
+| Plain-text corpus | 27 | 318 titled sections; 701 blank-line-separated text blocks | 309,923 bytes |
 | Plain-text dialogue | 3 | 242 پرسش/پاسخ records (226 train, 8 validation, 8 test) | 122,088 bytes |
-| **Total** | **22** | **262 sections + 242 dialogue records** | **375,682 bytes (about 366.9 KiB)** |
+| **Total** | **30** | **318 sections + 242 dialogue records** | **432,011 bytes** |
 
-The raw text corpus contains 25,301 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The raw text corpus contains 30,846 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
 Conversation split counts: **train 226**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
@@ -51,6 +51,15 @@ Current text files:
 - `fa_linguistics_0001.txt`: phonology, morphology, semantics, translation, Persian orthography, corpus design, and conversation.
 - `fa_biology_0001.txt`: cells, enzymes, genetics, evolution, ecology, microbiomes, and experimental design.
 - `fa_physics_0001.txt`: mechanics, energy, fluids, heat, electricity, magnetism, waves, optics, and measurement.
+
+- `fa_computer_science_0001.txt`: binary representation, memory hierarchy, operating systems, networking, APIs, software testing, and maintenance.
+- `fa_astronomy_0001.txt`: sky observation, stars and planets, lunar phases, spectra, telescopes, cosmic distances, and light pollution.
+- `fa_chemistry_0001.txt`: matter, atoms, chemical bonds, reactions, acids and bases, solutions, and reaction rates.
+- `fa_statistics_0001.txt`: sampling, descriptive statistics, correlation, uncertainty, hypothesis testing, missing data, and visualization.
+- `fa_geography_0001.txt`: map scales, projections, coordinates, climate, watersheds, urban heat, and human geography.
+- `fa_engineering_0001.txt`: requirements, prototyping, tolerances, energy efficiency, safety, repairability, and life-cycle assessment.
+- `fa_literature_0001.txt`: narrative perspective, characterization, dialogue, metaphor, editing, and literary criticism.
+- `fa_law_civics_0001.txt`: legal rules, rights and responsibilities, contracts, privacy, public institutions, and dispute resolution.
 
 Dialogue files:
 
