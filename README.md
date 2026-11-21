@@ -9,6 +9,7 @@ SimaNNDS is a compact Persian-language dataset repository for experiments with t
 - `manifest.json`: dataset provenance, intended uses, limitations, normalization policy, and measured statistics.
 - `docs/DATASET_CARD.fa.md`: Persian-language data card describing scope, provenance, formats, risks, and appropriate use.
 - `tools/validate_dataset.py`: standard-library-only structural validator and statistics report.
+- `.github/workflows/validate-dataset.yml`: runs the validator on relevant pushes and pull requests.
 
 ## Data card
 
