@@ -125,11 +125,14 @@
     "text_bytes": 90157,
     "conversation_bytes": 45784,
     "total_data_bytes": 135941,
-    "text_characters_including_whitespace": 49535,
+    "text_characters_including_whitespace": 49538,
     "text_whitespace_separated_words": 9021,
     "exact_normalized_duplicate_text_blocks": 0,
     "exact_duplicate_conversation_pairs": 0,
     "repeated_conversation_instructions": 0,
     "note": "Byte sizes are UTF-8 file sizes. Text blocks are separated by blank lines; titled sections are counted by the 'عنوان:' heading. Word counts use whitespace splitting and are not model-token counts. Duplicate checks are normalized exact comparisons, not semantic near-duplicate detection."
-  }
+  },
+  "documentation": [
+    "docs/DATASET_CARD.fa.md"
+  ]
 }
