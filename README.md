@@ -12,7 +12,7 @@ SimaNNDS is the dataset repository for experiments with the SimaNN language mode
 
 ## Current contents
 
-- `corpus/`: UTF-8 plain-text documents. Blank lines separate passages; headings are part of the text.
+- `corpus/`: UTF-8 plain-text documents, including general educational prose and everyday narrative/dialogue. Blank lines separate passages; headings are part of the text.
 - `conversations/`: UTF-8 JSONL instruction/response examples. These are auxiliary data and are **not** consumed by the current SimaNN byte-level RNN trainer without a future adapter.
 - `manifest.json`: provenance, intended use, and current dataset status.
 - `tools/validate_dataset.py`: standard-library-only validation and statistics.
