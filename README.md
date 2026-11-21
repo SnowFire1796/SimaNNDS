@@ -22,11 +22,11 @@ Snapshot measured on 2026-11-21:
 
 | Dataset | Files | Sections / examples | Size |
 |---|---:|---:|---:|
-| Plain-text corpus | 37 | 683 titled sections; 3031 blank-line-separated text blocks | 1,226,018 bytes |
+| Plain-text corpus | 37 | 683 titled sections; 3031 blank-line-separated text blocks | 1,411,310 bytes |
 | Plain-text dialogue | 3 | 242 پرسش/پاسخ records (226 train, 8 validation, 8 test) | 122,088 bytes |
-| **Total** | **40** | **683 sections + 242 dialogue records** | **1,348,106 bytes** |
+| **Total** | **40** | **683 sections + 242 dialogue records** | **1,533,398 bytes** |
 
-The raw text corpus contains 124,113 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
+The raw text corpus contains 140,513 whitespace-separated words. Dialogue records are stored separately. This is a structural count, not a tokenizer-specific token count. The current text blocks and conversation pairs have no exact normalized duplicates according to the repository validator. Semantic near-duplicates are not automatically detected.
 
 Conversation split counts: **train 226**, **validation 8**, **test 8**. These are small synthetic partitions, not an independently reviewed benchmark.
 
